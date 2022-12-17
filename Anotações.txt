@@ -1,0 +1,32 @@
+--configuração
+	.Net 6
+	NodeJS 14
+	ReactJS
+	se quiser, NVM para controlar versões do NODE:
+	NVM -- https://github.com/nvm-sh/nvm 
+	
+	--extensões VSCode
+	.NET Core Tools - jun han --otima pra build e run do .net
+	JavaScript Debugger - microsoft - debug java script
+	Auto Close Tag - jun han - fechamento de tag auto
+	Auto Close Tag - steoates - importa as biblioteca do typescript
+	Auto Import - ES6, TS, JSX, TSX - sergey koreuk - importa as biblioteca pra tudo
+	Auto Rename Tag - jun han - ajuda com tags
+	Bracket Pair Colorizer 2 - coenraads - ajuda visual no codigo
+	GitLens — Git supercharged - philipp kief - icons para o vscode
+	c# - microsoft
+	C# Extensions - joskreativ - ajuda no dev do C#
+	Community Material Theme - equinusocio - temas para o vscode
+	ES7+ React/Redux/React-Native snippets - dsznajder - snippers para agilizar o dev em reactjs
+	ESLint - microsft - corretor de javascript
+	GitLens — Git supercharged - gitkraken - ajuda a cuidar das versões commitadas
+	MySQL - jun han - mysql dentro do vscode 
+	npm  - microsft - ajuda a controlar dependencias
+	npm Intellisense - Chistian Kohler - ajuda a controlar dependencias
+	NuGet Gallery - pcislo - ajuda instalar extensões .net e C#
+	Path Intellisense - Chistian Kohler - ajuda a codar
+	Prettier - Code formatter - Prettier - ajuda a indentar o codigo (CTRL+S)
+
+--NodeJS
+	--mudar versão do node
+	nvm use 14 
