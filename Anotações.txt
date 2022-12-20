@@ -1,11 +1,11 @@
---configuraÁ„o
+--configura√ß√£o
 	.Net 6
 	NodeJS 14
 	ReactJS
-	se quiser, NVM para controlar versıes do NODE:
+	se quiser, NVM para controlar vers√µes do NODE:
 	NVM -- https://github.com/nvm-sh/nvm 
 	
-	--extensıes VSCode
+	--extens√µes VSCode
 	.NET Core Tools - jun han --otima pra build e run do .net
 	JavaScript Debugger - microsoft - debug java script
 	Auto Close Tag - jun han - fechamento de tag auto
@@ -13,20 +13,37 @@
 	Auto Import - ES6, TS, JSX, TSX - sergey koreuk - importa as biblioteca pra tudo
 	Auto Rename Tag - jun han - ajuda com tags
 	Bracket Pair Colorizer 2 - coenraads - ajuda visual no codigo
-	GitLens ó Git supercharged - philipp kief - icons para o vscode
+	GitLens - Git supercharged - philipp kief - icons para o vscode
 	c# - microsoft
 	C# Extensions - joskreativ - ajuda no dev do C#
 	Community Material Theme - equinusocio - temas para o vscode
 	ES7+ React/Redux/React-Native snippets - dsznajder - snippers para agilizar o dev em reactjs
 	ESLint - microsft - corretor de javascript
-	GitLens ó Git supercharged - gitkraken - ajuda a cuidar das versıes commitadas
+	GitLens - Git supercharged - gitkraken - ajuda a cuidar das versÔøΩes commitadas
 	MySQL - jun han - mysql dentro do vscode 
 	npm  - microsft - ajuda a controlar dependencias
 	npm Intellisense - Chistian Kohler - ajuda a controlar dependencias
-	NuGet Gallery - pcislo - ajuda instalar extensıes .net e C#
+	NuGet Gallery - pcislo - ajuda instalar extens√µes .net e C#
 	Path Intellisense - Chistian Kohler - ajuda a codar
 	Prettier - Code formatter - Prettier - ajuda a indentar o codigo (CTRL+S)
 
 --NodeJS
-	--mudar vers„o do node
+	--mudar vers√£o do node --n√£o esquecer de instalar o nvm
 	nvm use 14 
+
+--ReactJS
+	--instalando as bibliotecas .vscode
+	npm i -g create-react-native-app //i - instalar | -g de forma global
+	--criando o projeto
+	npx create-react-app pro-atividade-app //caso queria usar o npm: --use-npm e caso queira o react com typescript: --template typescript
+	-criando o node_modules
+	npm install --no-audit --save --save-exact --loglevel error react react-dom react-scripts cra-template
+
+	--executando
+	npm run start
+
+	--instalando o bootstrap no react na sua ultima vers√£o
+	npm install bootstrap    --se quiser uma vers√£o especifica, usa no final sem espa√ßo: @4.0.1   //link para ver documenta√ß√£o: https://getbootstrap.com/docs/5.2/getting-started/introduction/
+	--react-bootstrap
+	npm install react-bootstrap  //link para ver documenta√ß√£o: https://react-bootstrap.github.io/getting-started/introduction
+

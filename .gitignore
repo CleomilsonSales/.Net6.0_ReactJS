@@ -1,5 +1,6 @@
 #meus ignores
-
+node_modules
+.vscode
 
 # Logs
 logs
