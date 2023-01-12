@@ -1,15 +1,27 @@
 import './App.css';
+import { useState } from 'react';
+
+let initialState = [{
+  'id': 1,
+  'descricao': 'Primeira atividade'
+},
+{
+  'id': 2,
+  'descricao': 'Segunda atividade'
+}];
 
 function App() {
   //teste
-  const atividades = [{
+  /*const atividades = [{
     'id': 1,
     'descricao': 'Primeira atividade'
   },
   {
     'id': 2,
     'descricao': 'Segunda atividade'
-  }]
+  }]*/
+  const [atividades, setAtividades] = useState(initialState) //com Hook useState - atualizar tela
+
   //caso queria usar o java puro para fazer a inserção do forms
   function addAtividade (e){ //o E é um evento que esta recebendo
     e.preventDefault(); //evitando o submit do form
@@ -18,10 +30,13 @@ function App() {
       descricao: document.getElementById('descricao').value,
     }
   
-    atividades.push(atividade);
-    console.log(atividades);
+    //atividades.push(atividade); antes do hook
+    //console.log(atividades);
+    setAtividades([... atividades, { ... atividade }]); //refresh na tela
+
 
   }
+
 
   return (
     /*<div className='mt-3'>
