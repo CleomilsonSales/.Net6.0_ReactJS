@@ -50,19 +50,42 @@ function App() {
     //<>  é um fragments de forma reduzida a escrita
     //se passar os () depois de um função ele vai executar no momento da criação do jsx
     <> 
-      <form>
-        <input id='id' type='text' placehold='Id' />
-        <input id='descricao' type='descricao' placehold='Descrição' />
-        <button onClick={ addAtividade }>Add Atividade</button>
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label for="inputId" className='form-label'>Id</label>
+          <input id="id" type="text" className="form-control" />
+        </div>
+        <div class="col-md-6">
+          <label for="inputDescricao" className="form-label">Descricao</label>
+          <input id="descricao" type="descricao" className="form-control" />
+        </div>
+        <hr/>
+        <div class="col-12">
+          <button className="btn btn-outline-secondary" onClick={ addAtividade }>Add Atividade</button>
+        </div>
+
       </form>
 
-      <div className='mt-3'>
-        <ul className='list-group'>
+      <div className="mt-3">
           {atividades.map(ativ => (
-            <li key={ativ.id} className='list-group-item' >{ ativ.id }-{ativ.descricao }</li>
+            // como seria com estilo: style={{ width: "18rem" }}>
+            <div key={ativ.id} className="card mb-2 shadow-sm" > 
+              <div className="d-flex justify-content-between">
+                <h5 className="card-title">
+                  <span className="badge bg-secondary me-1">{ ativ.id }</span>
+                   -Titulo
+                </h5>
+                <h6>
+                  Prioridade: Normal
+                </h6>
+              </div>
+              <div className="card-body">
+                <p className="card-text">{ativ.descricao }</p>
+              </div>
+            </div>
           ))}
-        </ul>
       </div>
+      
     </>
   );
 }
