@@ -47,3 +47,6 @@
 	--react-bootstrap
 	npm install react-bootstrap  //link para ver documentação: https://react-bootstrap.github.io/getting-started/introduction
 
+	--instalando FontAwesome - npm
+	npm install --save @fortawesome/fontawesome-free
+		lembrar de importar no index.css

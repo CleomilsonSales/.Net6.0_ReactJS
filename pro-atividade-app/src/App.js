@@ -1,14 +1,26 @@
 import './App.css';
 import { useState } from 'react';
 
+//iniciando para testes
 let initialState = [{
-  'id': 1,
-  'descricao': 'Primeira atividade'
+  id: 1,
+  prioridade: '1',
+  titulo: 'Primeira atividade',
+  descricao: 'Primeira atividade'
 },
 {
-  'id': 2,
-  'descricao': 'Segunda atividade'
-}];
+  id: 2,
+  prioridade: '2',
+  titulo: 'Segunda atividade',
+  descricao: 'Segunda atividade'
+},
+{
+  id: 3,
+  prioridade: '3',
+  titulo: 'Terceira atividade',
+  descricao: 'Terceira atividade'
+}
+];
 
 function App() {
   //teste
@@ -27,6 +39,8 @@ function App() {
     e.preventDefault(); //evitando o submit do form
     const atividade = {
       id: document.getElementById('id').value,
+      prioridade: document.getElementById('prioridade').value,
+      titulo: document.getElementById('titulo').value,
       descricao: document.getElementById('descricao').value,
     }
   
@@ -37,6 +51,31 @@ function App() {
 
   }
 
+  function prioridadeLabel(param){
+    switch(param){
+      case '1':
+        return 'Baixa';
+      case '2':
+        return 'Normal';
+      case '3':
+        return 'Alta';
+      default:
+        return 'Não definida';
+    }
+  }
+
+  function prioridadeStyle(param,icone){
+    switch(param){
+      case '1':
+        return icone ? 'smile' : 'success';
+      case '2':
+        return icone ? 'meh' : 'dark';
+      case '3':
+        return icone ? 'frown' : 'warning';
+      default:
+        return 'Não definida';
+    }
+  }
 
   return (
     /*<div className='mt-3'>
@@ -50,17 +89,35 @@ function App() {
     //<>  é um fragments de forma reduzida a escrita
     //se passar os () depois de um função ele vai executar no momento da criação do jsx
     <> 
-      <form class="row g-3">
-        <div class="col-md-6">
-          <label for="inputId" className='form-label'>Id</label>
-          <input id="id" type="text" className="form-control" />
+      <form className="row g-3">
+        <div className="col-md-6">
+          <label className='form-label'>Id</label>
+          <input id="id" type="text" className="form-control" readOnly 
+            value={ Math.max.apply(Math, atividades.map(item => item.id)) + 1 } /*incrementado id de uma forma bem legal*/ />
         </div>
-        <div class="col-md-6">
-          <label for="inputDescricao" className="form-label">Descricao</label>
-          <input id="descricao" type="descricao" className="form-control" />
+
+        <div className="col-md-6">
+          <label className='form-label'>Prioridade</label>
+          <select id='prioridade' className='form-select'>
+            <option defaultValue="0">Selecionar...</option>
+            <option value="1">Baixa</option>
+            <option value="2">Média</option>
+            <option value="3">Alta</option>
+          </select>
         </div>
+
+        <div className="col-md-6">
+          <label className="form-label">Título</label>
+          <input id="titulo" type="text" className="form-control" />
+        </div>
+
+        <div className="col-md-6">
+          <label className="form-label">Descricao</label>
+          <input id="descricao" type="text" className="form-control" />
+        </div>
+
         <hr/>
-        <div class="col-12">
+        <div className="col-12">
           <button className="btn btn-outline-secondary" onClick={ addAtividade }>Add Atividade</button>
         </div>
 
@@ -69,18 +126,35 @@ function App() {
       <div className="mt-3">
           {atividades.map(ativ => (
             // como seria com estilo: style={{ width: "18rem" }}>
-            <div key={ativ.id} className="card mb-2 shadow-sm" > 
-              <div className="d-flex justify-content-between">
-                <h5 className="card-title">
-                  <span className="badge bg-secondary me-1">{ ativ.id }</span>
-                   -Titulo
-                </h5>
-                <h6>
-                  Prioridade: Normal
-                </h6>
-              </div>
-              <div className="card-body">
+            <div key={ativ.id} className={ 'card mb-2 shadow-sm border-'+prioridadeStyle(ativ.prioridade) } > 
+              <div className='card-body'>
+                <div className="d-flex justify-content-between">
+                  <h5 className="card-title">
+                    <span className="badge bg-secondary me-1">
+                      { ativ.id }
+                    </span>
+                    -{ ativ.titulo }
+                  </h5>
+                  <h6>
+                    Prioridade: 
+                    <span className={ 'ms-1 text-' + prioridadeStyle(ativ.prioridade) }>
+                      <i className={ 'me-1 far fa-' + prioridadeStyle(ativ.prioridade,true) }></i>
+                      { prioridadeLabel(ativ.prioridade) }
+                    </span>
+                  </h6>
+                </div>
                 <p className="card-text">{ativ.descricao }</p>
+                <div className='d-flex justify-content-end pt-2 m-0 border-top'>
+                  <button className='btn btn-sm btn-outline-primary me-2'>
+                    <i className='fas fa-pen me-2'></i>
+                    Editar
+                  </button> 
+                  <button className='btn btn-sm btn btn-outline-danger'>
+                    <i className='fas fa-trash me-2'></i>
+                    Deletar
+                  </button>
+
+                </div>
               </div>
             </div>
           ))}
