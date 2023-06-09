@@ -41,7 +41,8 @@ function App() {
   function addAtividade (e){ //o E é um evento que esta recebendo
     e.preventDefault(); //evitando o submit do form
     const atividade = {
-      id: document.getElementById('id').value,
+      //id: document.getElementById('id').value,
+      id: Math.max.apply(Math, atividades.map((item) => item.id)) + 1,
       prioridade: document.getElementById('prioridade').value,
       titulo: document.getElementById('titulo').value,
       descricao: document.getElementById('descricao').value,

@@ -1,9 +1,9 @@
 --configuração
-	.Net 6
+	.Net 6 : https://download.visualstudio.microsoft.com/download/pr/df42b901-8ce2-4131-941a-b3fa094ff3d8/556da65f7a2f6164bf3df932e030898a/dotnet-sdk-6.0.408-win-x64.exe
 	NodeJS 14
 	ReactJS
 	se quiser, NVM para controlar versões do NODE:
-	NVM -- https://github.com/nvm-sh/nvm 
+	NVM -- https://github.com/nvm-sh/nvm ou pelo instalador do site oficial
 	
 	--extensões VSCode
 	.NET Core Tools - jun han --otima pra build e run do .net
@@ -19,7 +19,6 @@
 	Community Material Theme - equinusocio - temas para o vscode
 	ES7+ React/Redux/React-Native snippets - dsznajder - snippers para agilizar o dev em reactjs
 	ESLint - microsft - corretor de javascript
-	GitLens - Git supercharged - gitkraken - ajuda a cuidar das vers�es commitadas
 	MySQL - jun han - mysql dentro do vscode 
 	npm  - microsft - ajuda a controlar dependencias
 	npm Intellisense - Chistian Kohler - ajuda a controlar dependencias
@@ -50,3 +49,6 @@
 	--instalando FontAwesome - npm
 	npm install --save @fortawesome/fontawesome-free
 		lembrar de importar no index.css
+
+	--instalar components reactjs no chrome
+		React Developer Tools		
