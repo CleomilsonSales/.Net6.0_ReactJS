@@ -23,25 +23,38 @@ export default function AtividadeForm(props) {
         //apenas teste
         //console.log(value);
         setAtividade({...atividade,[name]:value}) //to jogando uma nova propriedade ao meu array atividade
-  }
-
-  const handleCancelar = (e) => {
-    e.preventDefault();
-    setAtividade(atividadeInicial);
-  }
-
-  function atividadeAtual(){
-    if (props.ativSelecionada.id === 0){
-        return props.ativSelecionada;
-    }else{
-        return atividadeInicial;
     }
-  }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if(props.ativSelecionada.id !== 0)
+            props.atualizarAtividade(atividade);
+        else
+            props.addAtividade(atividade);
+        
+
+        setAtividade(atividadeInicial);
+    }
+
+    const handleCancelar = (e) => {
+        e.preventDefault();
+        props.cancelarAtividade();
+        setAtividade(atividadeInicial);
+    }
+
+    function atividadeAtual(){
+        if (props.ativSelecionada.id === 0){
+            return props.ativSelecionada;
+        }else{
+            return atividadeInicial;
+        }
+    }
 
   return (
     <>
         <h1>Atividade { atividade.id !== 0 ? atividade.id : '' }</h1>
-        <form className="row g-3">
+        <form className="row g-3" onSubmit={ handleSubmit }>
             {/*<div className="col-md-6">
                 <label className='form-label'>Id</label>
                 <input 
@@ -91,14 +104,15 @@ export default function AtividadeForm(props) {
                     id="descricao" 
                     type="text" 
                     className="form-control" />
+                <hr/>
             </div>
 
-            <hr/>
-            <div className="col-12">
+            <div className="col-12 mt-0">
                 {atividade.id === 0 ? (
                     <button 
                         className="btn btn-outline-secondary" 
-                        onClick={ props.addAtividade }>
+                        /*onClick={ props.addAtividade }*/
+                        type='submit'>
                             <i className='fas fa-plus me-2'></i>
                             Atividade
                     </button>

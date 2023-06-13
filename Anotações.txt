@@ -52,3 +52,11 @@
 
 	--instalar components reactjs no chrome
 		React Developer Tools		
+
+--Comandos Git
+	git init --iniciazando o git (lembra de fazer na pasta que quer mandar)
+	git status -- mostra o que tem pendente de adcionar (commit)
+	git add . --adiciona tudo
+	git commit	--para fazer o commits dos objetos, lembrar de colocar a anotação do commit com o (-m)
+	git remote add origin --para enviar para o github, lembra de colocar o caminho .git disponibilizado pelo github
+	git push -u origin main -- confirmando e enviado os arquivos

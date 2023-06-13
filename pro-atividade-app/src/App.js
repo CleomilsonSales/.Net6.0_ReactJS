@@ -1,8 +1,9 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AtividadeForm from './components/AtividadeForm';
 import AtividadeLista from './components/AtividadeLista';
 
+/*
 //iniciando para testes
 let initialState = [{
   id: 1,
@@ -22,7 +23,7 @@ let initialState = [{
   titulo: 'Terceira atividade',
   descricao: 'Terceira atividade'
 }
-];
+];*/
 
 function App() {
   //teste
@@ -34,9 +35,12 @@ function App() {
     'id': 2,
     'descricao': 'Segunda atividade'
   }]*/
-  const [atividades, setAtividades] = useState(initialState) //com Hook useState - atualizar tela
-  const [atividade, setAtividade] = useState({})
+  //const [atividades, setAtividades] = useState(initialState); //com Hook useState - atualizar tela
+  const [atividades, setAtividades] = useState([]);
+  const [atividade, setAtividade] = useState({ id: 0});
+  const [index, setIndex] = useState(0);
 
+  /* antigo
   //caso queria usar o java puro para fazer a inserção do forms
   function addAtividade (e){ //o E é um evento que esta recebendo
     e.preventDefault(); //evitando o submit do form
@@ -53,10 +57,28 @@ function App() {
     // os "..." é um spread operator, muito usando para fazer copia exata de um array
     setAtividades([...atividades, { ...atividade }]); //refresh na tela 
   }
+  */
+
+  useEffect(() => {
+    atividades.length <= 0 ? setIndex(1) : setIndex(Math.max.apply(Math, atividades.map((item) => item.id)) + 1)
+  }, [atividades])
+
+  function addAtividade (ativ){ //o E é um evento que esta recebendo
+    setAtividades([...atividades, { ...ativ, id: index }]); //refresh na tela 
+  }
 
   function deletarAtividade(id){
     const atividadesFiltrada = atividades.filter(atividade => atividade.id !== id);
     setAtividades([...atividadesFiltrada]);
+  }
+
+  function atualizarAtividade(ativ){
+    setAtividades(atividades.map(item => item.id === ativ.id ? ativ : item))
+    setAtividade({id: 0})
+  }
+
+  function cancelarAtividade(){
+    setAtividade({id: 0})
   }
 
   function pegarAtividade(id){
@@ -79,6 +101,8 @@ function App() {
       <AtividadeForm 
         //mandando minha função para meu componente, sera um props do outro lado
         addAtividade={addAtividade}
+        atualizarAtividade={atualizarAtividade}
+        cancelarAtividade={cancelarAtividade}
         ativSelecionada={atividade}
         atividades={atividades}
       />
