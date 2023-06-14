@@ -1,5 +1,5 @@
 --configuração
-	.Net 6 : https://download.visualstudio.microsoft.com/download/pr/df42b901-8ce2-4131-941a-b3fa094ff3d8/556da65f7a2f6164bf3df932e030898a/dotnet-sdk-6.0.408-win-x64.exe
+	.Net 6.0
 	NodeJS 14
 	ReactJS
 	se quiser, NVM para controlar versões do NODE:
@@ -60,3 +60,23 @@
 	git commit	--para fazer o commits dos objetos, lembrar de colocar a anotação do commit com o (-m)
 	git remote add origin --para enviar para o github, lembra de colocar o caminho .git disponibilizado pelo github
 	git push -u origin main -- confirmando e enviado os arquivos
+
+
+--DotNet 5.0.408 (depois no curso vamos migrar para o dotnet 6.0.410)
+	dotnet --version
+	dotnet --list-sdks
+	--pegando outra versão do sdk
+		dotnet new globaljson --sdk-version 5.0.408 --force
+	--criando um novo projeto API
+		dotnet new webapi -n [nomeProjeto]
+
+	--executando o dotnet
+		dotnet run
+
+		obs.: caminho para acessar a API: https://localhost:5001/swagger/index.html
+
+		--instalando o certificado para usar o https ou caso o run não funcione (reiniciar a maquina)
+			1 - dotnet dev-certs https --clean
+			2 - dotnet dev-certs https --trust
+
+			obs.: caso não queria usar o https, comentar o https no startup.cs e no launchSetting.json
