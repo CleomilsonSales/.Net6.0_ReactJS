@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\ProAtividade.API.csproj": {}
+    "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\ProAtividade.API.csproj": {}
   },
   "projects": {
-    "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\ProAtividade.API.csproj": {
+    "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\ProAtividade.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\ProAtividade.API.csproj",
+        "projectUniqueName": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\ProAtividade.API.csproj",
         "projectName": "ProAtividade.API",
-        "projectPath": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\ProAtividade.API.csproj",
+        "projectPath": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\ProAtividade.API.csproj",
         "packagesPath": "C:\\Users\\cleom\\.nuget\\packages\\",
-        "outputPath": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\obj\\",
+        "outputPath": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cleom\\AppData\\Roaming\\NuGet\\NuGet.Config",

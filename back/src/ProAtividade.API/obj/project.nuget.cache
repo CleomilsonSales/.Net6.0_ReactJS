@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F7RdMcqBaEuFzcQsPPJwD/nBp7clX0miC7Gaj0WdW7+UoNwBmHwqxBjX9E/pkVH2GfdfiasVXE4dj0N/dYjy+A==",
+  "dgSpecHash": "s7Yv2dGDI0aGh0pTN/VYiXa9lbzk3+TNzwCmwLQVVu/U3y3KJUhdJ6YaaDGuWDuBHiIlLdxTltoMJE/y8ohVxQ==",
   "success": true,
-  "projectFilePath": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\ProAtividade.API.csproj",
+  "projectFilePath": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.API\\ProAtividade.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cleom\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\cleom\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

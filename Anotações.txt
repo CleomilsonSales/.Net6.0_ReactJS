@@ -71,7 +71,7 @@
 		dotnet new webapi -n [nomeProjeto]
 
 	--executando o dotnet
-		dotnet run
+		dotnet run ou dotnet watch run
 
 		obs.: caminho para acessar a API: https://localhost:5001/swagger/index.html
 
