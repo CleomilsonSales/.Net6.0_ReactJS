@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ProAtividade.API.models;
+using ProAtividade.API.Models;
 
 namespace ProAtividade.API.Controllers
 {

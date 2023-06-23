@@ -60,7 +60,7 @@
 	git commit	--para fazer o commits dos objetos, lembrar de colocar a anotação do commit com o (-m)
 	git remote add origin --para enviar para o github, lembra de colocar o caminho .git disponibilizado pelo github
 	git push -u origin main -- confirmando e enviado os arquivos
-
+	dotnet new gitignore - ele cria um ignore padrão para o .Net 
 
 --DotNet 5.0.408 (depois no curso vamos migrar para o dotnet 6.0.410)
 	dotnet --version
@@ -80,3 +80,17 @@
 			2 - dotnet dev-certs https --trust
 
 			obs.: caso não queria usar o https, comentar o https no startup.cs e no launchSetting.json
+
+	--instalando o EF
+		dotnet tool install --global dotnet-ef --version 5.0.10
+	--chamando o EF
+		dotnet -ef
+	--adicionando no EF core e outros
+		dotnet add package Microsoft.EntityFrameworkCore --version 5.0.10
+		dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 5.0.10
+		dotnet add package Microsoft.EntityFrameworkCore.Design --version 5.0.10
+		dotnet add package Microsoft.EntityFrameworkCore.Tools --version 5.0.10
+
+	--usando EF
+		-criando as migrations
+		dotnet ef migrations add initial -o Data/Migrations
