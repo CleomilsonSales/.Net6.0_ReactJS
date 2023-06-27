@@ -19,7 +19,8 @@
 	Community Material Theme - equinusocio - temas para o vscode
 	ES7+ React/Redux/React-Native snippets - dsznajder - snippers para agilizar o dev em reactjs
 	ESLint - microsft - corretor de javascript
-	MySQL - jun han - mysql dentro do vscode 
+	MySQL - cweijan - mysql dentro do vscode 
+	
 	npm  - microsft - ajuda a controlar dependencias
 	npm Intellisense - Chistian Kohler - ajuda a controlar dependencias
 	NuGet Gallery - pcislo - ajuda instalar extensões .net e C#
@@ -92,5 +93,10 @@
 		dotnet add package Microsoft.EntityFrameworkCore.Tools --version 5.0.10
 
 	--usando EF
+		-lembrando que -h é para puxar o help para a linha de comando
+			dotnet ef migrations add -h
+			dotnet ef -h
 		-criando as migrations
-		dotnet ef migrations add initial -o Data/Migrations
+			dotnet ef migrations add initial -o Data/Migrations
+		--criar o banco de dados
+			dotnet ef database update
