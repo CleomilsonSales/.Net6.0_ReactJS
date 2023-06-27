@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import AtividadeForm from './components/AtividadeForm';
 import AtividadeLista from './components/AtividadeLista';
+import api from './api/atividade';
 
 /*
 //iniciando para testes
@@ -38,7 +39,7 @@ function App() {
   //const [atividades, setAtividades] = useState(initialState); //com Hook useState - atualizar tela
   const [atividades, setAtividades] = useState([]);
   const [atividade, setAtividade] = useState({ id: 0});
-  const [index, setIndex] = useState(0);
+  const [index/*, setIndex*/] = useState(0);
 
   /* antigo
   //caso queria usar o java puro para fazer a inserção do forms
@@ -59,9 +60,22 @@ function App() {
   }
   */
 
+  //async e await = chamada assicrona 
+  const pegaTodasAtividades = async () => {
+    //api.get('atividade') esse trecho é como se ele estivesse juntanto a baseURL do componente ativdade.js, ex.:  https://localhost:5001/api/atividade
+    const response = await api.get('atividade');
+    return response.data;
+  }
+
   useEffect(() => {
-    atividades.length <= 0 ? setIndex(1) : setIndex(Math.max.apply(Math, atividades.map((item) => item.id)) + 1)
-  }, [atividades])
+    //get no banco de dados pelo api
+    const getAtividades = async () => {
+      const todasAtividades = await pegaTodasAtividades();
+      if (todasAtividades) setAtividades(todasAtividades);
+    }
+    getAtividades();
+    //atividades.length <= 0 ? setIndex(1) : setIndex(Math.max.apply(Math, atividades.map((item) => item.id)) + 1)
+  }, [/*atividades*/])  //quando se coloca atividades nesse cochetes, quer dizer que o userEffect vai ficar observando esse componente sempre que tiver alteração ele atualziar.
 
   function addAtividade (ativ){ //o E é um evento que esta recebendo
     setAtividades([...atividades, { ...ativ, id: index }]); //refresh na tela 

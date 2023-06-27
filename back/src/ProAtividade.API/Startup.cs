@@ -43,6 +43,9 @@ namespace ProAtividade.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProAtividade.API", Version = "v1" });
             });
+
+            //liberando o CORS para o front acessar o back
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,10 +64,18 @@ namespace ProAtividade.API
 
             app.UseAuthorization();
 
+            //liberando o CORS para o front acessar o back
+            //atenção a ordem que esse codigo existe importa
+            app.UseCors(option => option.AllowAnyHeader()
+                                        .AllowAnyMethod()
+                                        .AllowAnyOrigin());
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            
         }
     }
 }

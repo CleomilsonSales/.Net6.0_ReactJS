@@ -52,7 +52,11 @@
 		lembrar de importar no index.css
 
 	--instalar components reactjs no chrome
-		React Developer Tools		
+		React Developer Tools	
+
+	--instalando Axios (usado para trabalhar com as requisições HTTP da API feita em .Net)
+		npm install --save axios	
+
 
 --Comandos Git
 	git init --iniciazando o git (lembra de fazer na pasta que quer mandar)
@@ -100,3 +104,9 @@
 			dotnet ef migrations add initial -o Data/Migrations
 		--criar o banco de dados
 			dotnet ef database update
+
+	--se quiser definir um prefixo para suas propriedade
+		-CTRL+SHIFT+P -> Preferences: Open Settings (UI) -> find no C# private member prefix -> coloca o que quiser, estou usando o _, mas se não definir, ficara o default que é: this.{nome da propriedade}
+
+	--não esquecer de liberar o CORS para o front acessar o back
+		-acontece no componente Startup.cs
