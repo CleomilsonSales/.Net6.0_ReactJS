@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import AtividadeForm from './components/AtividadeForm';
 import AtividadeLista from './components/AtividadeLista';
 import api from './api/atividade';
+import { Button, Modal } from 'react-bootstrap';
 
 /*
 //iniciando para testes
@@ -39,7 +40,8 @@ function App() {
   //const [atividades, setAtividades] = useState(initialState); //com Hook useState - atualizar tela
   const [atividades, setAtividades] = useState([]);
   const [atividade, setAtividade] = useState({ id: 0});
-  const [index/*, setIndex*/] = useState(0);
+
+  //const [index/*, setIndex*/] = useState(0);
 
   /* antigo
   //caso queria usar o java puro para fazer a inserção do forms
@@ -60,6 +62,11 @@ function App() {
   }
   */
 
+  //adicionando o modal
+  const[show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   //async e await = chamada assicrona 
   const pegaTodasAtividades = async () => {
     //api.get('atividade') esse trecho é como se ele estivesse juntanto a baseURL do componente ativdade.js, ex.:  https://localhost:5001/api/atividade
@@ -77,17 +84,36 @@ function App() {
     //atividades.length <= 0 ? setIndex(1) : setIndex(Math.max.apply(Math, atividades.map((item) => item.id)) + 1)
   }, [/*atividades*/])  //quando se coloca atividades nesse cochetes, quer dizer que o userEffect vai ficar observando esse componente sempre que tiver alteração ele atualziar.
 
-  function addAtividade (ativ){ //o E é um evento que esta recebendo
+  /*function addAtividade (ativ){ //o E é um evento que esta recebendo
     setAtividades([...atividades, { ...ativ, id: index }]); //refresh na tela 
+  }*/
+
+  const addAtividade = async (ativ) => {
+    const response = await api.post('atividade', ativ);
+    setAtividades([...atividades, response.data]);
   }
 
-  function deletarAtividade(id){
+  /*function deletarAtividade(id){
     const atividadesFiltrada = atividades.filter(atividade => atividade.id !== id);
     setAtividades([...atividadesFiltrada]);
+  }*/
+
+  const deletarAtividade = async (id) => {
+    if (await api.delete(`atividade/${id}`)){
+      const atividadesFiltrada = atividades.filter(atividade => atividade.id !== id);
+      setAtividades([...atividadesFiltrada]);
+    }
   }
 
-  function atualizarAtividade(ativ){
+  /*function atualizarAtividade(ativ){
     setAtividades(atividades.map(item => item.id === ativ.id ? ativ : item))
+    setAtividade({id: 0})
+  }*/
+
+  const atualizarAtividade = async (ativ) => {
+    const response = await api.put(`atividade/${ativ.id}`, ativ);
+    const { id } = response.data;
+    setAtividades(atividades.map((item) => (item.id === id ? response.data : item)));
     setAtividade({id: 0})
   }
 
@@ -112,20 +138,46 @@ function App() {
     //<>  é um fragments de forma reduzida a escrita
     //se passar os () depois de um função ele vai executar no momento da criação do jsx
     <> 
-      <AtividadeForm 
-        //mandando minha função para meu componente, sera um props do outro lado
-        addAtividade={addAtividade}
-        atualizarAtividade={atualizarAtividade}
-        cancelarAtividade={cancelarAtividade}
-        ativSelecionada={atividade}
-        atividades={atividades}
-      />
+      <div className='d-flex justify-content-between align-items-end mt-2 pb-3 border-bottom border-1'>        
+        <h1 className='m-0 p-0'>Atividade { atividade.id !== 0 ? atividade.id : '' }</h1>
+        <Button variant='outline-secondary' onClick={handleShow}>
+          <i className='fas fa-plus'></i>
+        </Button>
+      </div>
 
       <AtividadeLista
         atividades={atividades}
         deletarAtividade={deletarAtividade}
         pegarAtividade={pegarAtividade}
       />
+
+      {/*o modal*/}
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            Atividade { atividade.id !== 0 ? atividade.id : '' }
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <AtividadeForm 
+            //mandando minha função para meu componente, sera um props do outro lado
+            addAtividade={addAtividade}
+            atualizarAtividade={atualizarAtividade}
+            cancelarAtividade={cancelarAtividade}
+            ativSelecionada={atividade}
+            atividades={atividades}
+          />
+        </Modal.Body>
+        {/*<Modal.Footer>
+          <Button variant='secondary' onClick={handleClose}>
+            Fechar
+          </Button>
+          <Button variant='primary' onClick={handleClose}>
+            Salvar
+          </Button>
+        </Modal.Footer>*/}
+      </Modal>
       
     </>
   );

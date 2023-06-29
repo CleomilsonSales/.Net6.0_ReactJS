@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Atividade from './Atividade';
 
 const atividadeInicial = {
     id: 0,
@@ -53,7 +52,6 @@ export default function AtividadeForm(props) {
 
   return (
     <>
-        <h1>Atividade { atividade.id !== 0 ? atividade.id : '' }</h1>
         <form className="row g-3" onSubmit={ handleSubmit }>
             {/*<div className="col-md-6">
                 <label className='form-label'>Id</label>
@@ -88,10 +86,10 @@ export default function AtividadeForm(props) {
                     onChange={ inputTextHandler }
                     id='prioridade'
                     className='form-select'>
-                <option defaultValue="0">Selecionar...</option>
-                <option value="1">Baixa</option>
-                <option value="2">Média</option>
-                <option value="3">Alta</option>
+                <option defaultValue="Não definida">Selecionar...</option>
+                <option value="Baixa">Baixa</option>
+                <option value="Média">Média</option>
+                <option value="Alta">Alta</option>
                 </select>
             </div>
 
