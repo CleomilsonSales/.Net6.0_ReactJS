@@ -88,7 +88,7 @@ export default function AtividadeForm(props) {
                     className='form-select'>
                 <option defaultValue="Não definida">Selecionar...</option>
                 <option value="Baixa">Baixa</option>
-                <option value="Média">Média</option>
+                <option value="Normal">Normal</option>
                 <option value="Alta">Alta</option>
                 </select>
             </div>
@@ -108,11 +108,11 @@ export default function AtividadeForm(props) {
             <div className="col-12 mt-0">
                 {atividade.id === 0 ? (
                     <button 
-                        className="btn btn-outline-secondary" 
+                        className="btn btn-outline-success" 
                         /*onClick={ props.addAtividade }*/
                         type='submit'>
                             <i className='fas fa-plus me-2'></i>
-                            Atividade
+                            Salvar
                     </button>
                 ) : (
                     <>

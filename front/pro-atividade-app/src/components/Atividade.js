@@ -68,7 +68,8 @@ export default function Atividade(props) {
           { /*arrow function esta sendo usada nesse cara que a função seja usada fora da chamada do botão*/ }
           <button 
             className='btn btn-sm btn btn-outline-danger'
-            onClick={() => props.deletarAtividade(props.ativ.id)}> 
+            //onClick={() => props.deletarAtividade(props.ativ.id)}
+            onClick={ () => props.handleConfirmModal(props.ativ.id) }> 
             <i className='fas fa-trash me-2'></i>
             Deletar
           </button>

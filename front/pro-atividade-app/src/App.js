@@ -63,9 +63,23 @@ function App() {
   */
 
   //adicionando o modal
-  const[show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const[showAtividadeModal, setShowAtividadeModal] = useState(false);
+  const[smShowConfirmModal, setSmShowAtividadeModal] = useState(false);
+  
+  const handleAtividadeModal = () => setShowAtividadeModal(!showAtividadeModal); //interessante que so negando eu criei um interruptor
+  
+  const handleConfirmModal = (id) => {
+    if (id !== 0 && id !== undefined){
+      const atividade = atividades.filter(
+        (atividade) => atividade.id === id
+      );
+      setAtividade(atividade[0]);
+    }else{
+      setAtividade({ id:0 });
+    }
+    setSmShowAtividadeModal(!smShowConfirmModal);
+  };
+  //const handleShow = () => setShow(true); ifcou junto o fechar e abri no mesmo arrow function
 
   //async e await = chamada assicrona 
   const pegaTodasAtividades = async () => {
@@ -88,7 +102,13 @@ function App() {
     setAtividades([...atividades, { ...ativ, id: index }]); //refresh na tela 
   }*/
 
+  const novaAtividade = () => {
+    setAtividade({id: 0});
+    handleAtividadeModal();
+  }
+
   const addAtividade = async (ativ) => {
+    handleAtividadeModal();
     const response = await api.post('atividade', ativ);
     setAtividades([...atividades, response.data]);
   }
@@ -99,6 +119,7 @@ function App() {
   }*/
 
   const deletarAtividade = async (id) => {
+    handleConfirmModal(0);
     if (await api.delete(`atividade/${id}`)){
       const atividadesFiltrada = atividades.filter(atividade => atividade.id !== id);
       setAtividades([...atividadesFiltrada]);
@@ -111,19 +132,23 @@ function App() {
   }*/
 
   const atualizarAtividade = async (ativ) => {
+    handleAtividadeModal();
     const response = await api.put(`atividade/${ativ.id}`, ativ);
     const { id } = response.data;
     setAtividades(atividades.map((item) => (item.id === id ? response.data : item)));
     setAtividade({id: 0})
   }
 
-  function cancelarAtividade(){
-    setAtividade({id: 0})
+  const cancelarAtividade = () => {
+    setAtividade({id: 0});
+    handleAtividadeModal();
   }
 
-  function pegarAtividade(id){
+  const pegarAtividade = (id) => {
     const atividade = atividades.filter((atividade) => atividade.id === id);
     setAtividade(atividade[0]);
+
+    handleAtividadeModal();
   }
 
   return (
@@ -140,20 +165,21 @@ function App() {
     <> 
       <div className='d-flex justify-content-between align-items-end mt-2 pb-3 border-bottom border-1'>        
         <h1 className='m-0 p-0'>Atividade { atividade.id !== 0 ? atividade.id : '' }</h1>
-        <Button variant='outline-secondary' onClick={handleShow}>
+        <Button variant='outline-secondary' onClick={novaAtividade}>
           <i className='fas fa-plus'></i>
         </Button>
       </div>
 
       <AtividadeLista
         atividades={atividades}
-        deletarAtividade={deletarAtividade}
+        //deletarAtividade={deletarAtividade}
         pegarAtividade={pegarAtividade}
+        handleConfirmModal={handleConfirmModal}
       />
 
       {/*o modal*/}
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={showAtividadeModal} onHide={handleAtividadeModal}>
         <Modal.Header closeButton>
           <Modal.Title>
             Atividade { atividade.id !== 0 ? atividade.id : '' }
@@ -179,6 +205,30 @@ function App() {
         </Modal.Footer>*/}
       </Modal>
       
+      <Modal size='sm' show={smShowConfirmModal} onHide={ handleConfirmModal }>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            Excluindo atividade { ' ' } { atividade.id !== 0 ? atividade.id : '' }
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Tem certeza que deseja excluir a atividade: { atividade.id } ?
+        </Modal.Body>
+        <Modal.Footer className='d-flex justify-content-between'>
+          <button 
+              className='btn btn-outline-success me-2'
+              onClick={ () => deletarAtividade(atividade.id) }    >
+              <i className='fas fa-check me-2'></i>
+              Sim
+          </button>   
+          <button 
+              className='btn btn-danger me-2'
+              onClick={ () => handleConfirmModal(0) }>
+              <i className='fas fa-times me-2'></i>
+              Não
+          </button> 
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
