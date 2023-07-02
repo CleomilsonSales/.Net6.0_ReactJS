@@ -55,3 +55,7 @@ D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.API\bin\Debug\net5.0\runtimes\w
 D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.API\bin\Debug\net5.0\runtimes\win-arm64\native\e_sqlite3.dll
 D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.API\bin\Debug\net5.0\runtimes\win-x64\native\e_sqlite3.dll
 D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.API\bin\Debug\net5.0\runtimes\win-x86\native\e_sqlite3.dll
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.API\bin\Debug\net5.0\ProAtividade.Data.dll
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.API\bin\Debug\net5.0\ProAtividade.Domain.dll
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.API\bin\Debug\net5.0\ProAtividade.Data.pdb
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.API\bin\Debug\net5.0\ProAtividade.Domain.pdb

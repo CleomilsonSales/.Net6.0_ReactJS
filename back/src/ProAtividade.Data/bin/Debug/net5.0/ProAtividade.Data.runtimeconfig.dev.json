@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\cleom\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\cleom\\.nuget\\packages"
+    ]
+  }
+}

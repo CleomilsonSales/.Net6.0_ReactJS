@@ -114,3 +114,23 @@
 
 	--não esquecer de liberar o CORS para o front acessar o back
 		-acontece no componente Startup.cs
+
+	--criando um solution (tem que ser fora da raiz do projeto, junto do global.json)
+		dotnet new sln -n ProAtividade
+	
+	--adicionando e referenciando a solução
+		dotnet sln ProAtividade.sln add ProAtividade.API
+		dotnet sln ProAtividade.sln add ProAtividade.Data
+		dotnet sln ProAtividade.sln add ProAtividade.Domain
+
+		dotnet add ProAtividade.API reference ProAtividade.Data
+		dotnet add ProAtividade.API reference ProAtividade.Domain
+		dotnet add ProAtividade.Data reference ProAtividade.Domain
+
+
+	--build no sistema pela solução (tem que ser fora da raiz do projeto, junto do global.json)
+		dotnet restore
+
+	--criando as Camadas (são chamados de projetos)
+		dotnet new classlib -n ProAtividade.Domain
+		dotnet new classlib -n ProAtividade.Data
