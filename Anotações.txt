@@ -106,8 +106,15 @@
 			dotnet ef -h
 		-criando as migrations
 			dotnet ef migrations add initial -o Data/Migrations
+
+		-criando migrations fora do dotnet standard, seguind as definições criadas por mim (tem que rodar fora da API) - mas recomendado
+			dotnet ef migrations add initial -p ProAtividade.Data -s ProAtividade.API
+
 		--criar o banco de dados
 			dotnet ef database update
+		
+		--criando o banco de dados sem o dotnet standard (tem que rodar fora da API) - lembrar de apagar o banco se existir
+			dotnet ef database update -s ProAtividade.API
 
 	--se quiser definir um prefixo para suas propriedade
 		-CTRL+SHIFT+P -> Preferences: Open Settings (UI) -> find no C# private member prefix -> coloca o que quiser, estou usando o _, mas se não definir, ficara o default que é: this.{nome da propriedade}
