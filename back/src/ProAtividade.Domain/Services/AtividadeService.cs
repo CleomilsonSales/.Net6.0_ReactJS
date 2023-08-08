@@ -11,42 +11,94 @@ namespace ProAtividade.Domain.Services
     public class AtividadeService : IAtividadeService
     {
         private readonly IAtividadeRepo _atividadeRepo;
-        private readonly IGeralRepo _geralRepo;
 
-        public AtividadeService(IAtividadeRepo atividadeRepo, IGeralRepo geralRepo)
+        public AtividadeService(IAtividadeRepo atividadeRepo)
         {
             _atividadeRepo = atividadeRepo;
-            _geralRepo = geralRepo;
         }
 
-        public Task<Atividade> AdicionarAtividade(Atividade model)
+        //task é uma forma de trabalhar assincrono
+        public async Task<Atividade> AdicionarAtividade(Atividade model)
         {
-            throw new NotImplementedException();
+            if (await _atividadeRepo.PegaPorTituloAsync(model.Titulo) != null)
+                throw new Excpeption("Já existe uma atividade com este titulo");
+
+            if (await _atividadeRepo.PegaPorIdAsync(model.id) == null){
+                _atividadeRepo.Adicionar(model);
+                if (await _atividadeRepo.SalvarMudancasAsync())
+                    return model;
+            }
+
+            return null;
         }
 
-        public Task<Atividade> AtualizarAtividade(Atividade model)
+        public async Task<Atividade> AtualizarAtividade(Atividade model)
         {
-            throw new NotImplementedException();
+            if (model.DataConclusao != null)
+                throw new Exception("Nâo pode atualizar algo concluido");
+            
+            if (await _atividadeRepo.PegaPorIdAsync(model.id) == null){
+                _atividadeRepo.Atualizar(model);
+                if (await _atividadeRepo.SalvarMudancasAsync())
+                    return model;
+            }
+
+            return null;
         }
 
-        public Task<bool> ConcluirAtividade(Atividade model)
+        public async Task<bool> ConcluirAtividade(Atividade model)
         {
-            throw new NotImplementedException();
+            if (model != null){
+                model.Concluir();
+                _atividadeRepo.Atualizar<Atividade>(model);
+                return await _atividadeRepo.SalvarMudancasAsync();
+            }
+            
+            return false;
         }
 
-        public Task<bool> DeletarAtividade(int atividadeId)
+        public async Task<bool> DeletarAtividade(int atividadeId)
         {
-            throw new NotImplementedException();
+            var atividade = await _atividadeRepo.PegaPorIdAsync(atividadeId);
+            if(atividade == null)
+                throw new Exception("Atividade não existe");
+            
+            _atividadeRepo.Deletar(atividade);
+            return await _atividadeRepo.SalvarMudancasAsync();
         }
 
-        public Task<Atividade> PegarAtividadePorIdAsync(int atividadeId)
+        public async Task<Atividade> PegarAtividadePorIdAsync(int atividadeId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var atividade = await _atividadeRepo.PegaPorIdAsync(atividadeId);
+                if(atividadeId == null) 
+                    return null;
+
+                return atividade;
+            }
+            catch (System.Exception ex)
+            {
+                
+                throw new Exception(ex.Message);
+            }
         }
 
-        public Task<Atividade> PegarTodasAtividadesAsync()
+        public async Task<Atividade[]> PegarTodasAtividadesAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var atividades = await _atividadeRepo.PegaTodasAsync();
+                if(atividadeId == null) 
+                    return null;
+
+                return atividades;
+            }
+            catch (System.Exception ex)
+            {
+                
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
