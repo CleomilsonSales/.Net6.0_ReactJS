@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj": {}
+    "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj": {}
   },
   "projects": {
-    "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj": {
+    "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj",
+        "projectUniqueName": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj",
         "projectName": "ProAtividade.Data",
-        "projectPath": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj",
+        "projectPath": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj",
         "packagesPath": "C:\\Users\\cleom\\.nuget\\packages\\",
-        "outputPath": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\obj\\",
+        "outputPath": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cleom\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj": {
-                "projectPath": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj"
+              "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj": {
+                "projectPath": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj": {
+    "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj",
+        "projectUniqueName": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj",
         "projectName": "ProAtividade.Domain",
-        "projectPath": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj",
+        "projectPath": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj",
         "packagesPath": "C:\\Users\\cleom\\.nuget\\packages\\",
-        "outputPath": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\obj\\",
+        "outputPath": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cleom\\AppData\\Roaming\\NuGet\\NuGet.Config",
