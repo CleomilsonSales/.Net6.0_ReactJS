@@ -26,7 +26,7 @@ namespace ProAtividade.Data.Repositories
             _context.Update(entity);
         }
 
-        public void Delete<T>(T entity) where T : class
+        public void Deletar<T>(T entity) where T : class
         {
             _context.Remove(entity);
         }
@@ -36,7 +36,7 @@ namespace ProAtividade.Data.Repositories
             _context.RemoveRange(entityArray);
         }
 
-        public async Task<bool> SalvarMudancaAsync()
+        public async Task<bool> SalvarMudancasAsync()
         {
             return (await _context.SaveChangesAsync()) > 0;
         }

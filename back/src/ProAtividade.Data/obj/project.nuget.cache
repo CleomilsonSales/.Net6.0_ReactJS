@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0ksw3HqyZCItGLooW/TNpv+zZmIoJNFp0YJ99arxmx0XKf7kcjhXwQNQUTo/WAmpcEGUo7OuxRIQAVxgDA5T7w==",
+  "dgSpecHash": "h/K1ZUanD4c+Hk1VkLpXbQ16Oi/6OxmcaPbdEVoQYs2R0oJqPWN/WIVMnfhSZXuno9NdDtxH7j7CxQk7VQU2RQ==",
   "success": true,
-  "projectFilePath": "d:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj",
+  "projectFilePath": "D:\\Estudos\\.Net6.0_ReactJS\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cleom\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\cleom\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

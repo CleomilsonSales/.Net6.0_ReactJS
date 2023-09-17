@@ -9,10 +9,10 @@ namespace ProAtividade.Domain.Interfaces.Repositories
     {
         void Adicionar<T>(T entity) where T : class;
         void Atualizar<T>(T entity) where T : class;
-        void Delete<T>(T entity) where T : class;
+        void Deletar<T>(T entity) where T : class;
         //caso queria fazer pra varios
         void DeleteVarias<T>(T[] entity) where T : class;
 
-        Task<bool> SalvarMudancaAsync();
+        Task<bool> SalvarMudancasAsync();
     }
 }

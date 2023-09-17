@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using ProAtividade.Domain.Entities;
 using ProAtividade.Domain.Interfaces.Repositories;
-using ProAtividade.Domain.Interfaces.Repositories.Services;
+using ProAtividade.Domain.Interfaces.Services;
+
 
 namespace ProAtividade.Domain.Services
 {
@@ -21,9 +22,9 @@ namespace ProAtividade.Domain.Services
         public async Task<Atividade> AdicionarAtividade(Atividade model)
         {
             if (await _atividadeRepo.PegaPorTituloAsync(model.Titulo) != null)
-                throw new Excpeption("Já existe uma atividade com este titulo");
+                throw new Exception("Já existe uma atividade com este titulo");
 
-            if (await _atividadeRepo.PegaPorIdAsync(model.id) == null){
+            if (await _atividadeRepo.PegaPorIdAsync(model.Id) == null){
                 _atividadeRepo.Adicionar(model);
                 if (await _atividadeRepo.SalvarMudancasAsync())
                     return model;
@@ -37,7 +38,7 @@ namespace ProAtividade.Domain.Services
             if (model.DataConclusao != null)
                 throw new Exception("Nâo pode atualizar algo concluido");
             
-            if (await _atividadeRepo.PegaPorIdAsync(model.id) == null){
+            if (await _atividadeRepo.PegaPorIdAsync(model.Id) != null){
                 _atividadeRepo.Atualizar(model);
                 if (await _atividadeRepo.SalvarMudancasAsync())
                     return model;
@@ -89,7 +90,7 @@ namespace ProAtividade.Domain.Services
             try
             {
                 var atividades = await _atividadeRepo.PegaTodasAsync();
-                if(atividadeId == null) 
+                if(atividades == null) 
                     return null;
 
                 return atividades;
@@ -100,5 +101,6 @@ namespace ProAtividade.Domain.Services
                 throw new Exception(ex.Message);
             }
         }
+
     }
 }
