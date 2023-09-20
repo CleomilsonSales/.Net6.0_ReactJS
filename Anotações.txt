@@ -61,6 +61,10 @@
 		npm install react-bootstrap@next bootstrap@5.1.1
 		-documentação: https://react-bootstrap.netlify.app/
 
+	--Bootswatch (skins para o bootstrap)
+		npm install bootswatch bootswatch@5.1.3
+		documentação: https://bootswatch.com/
+
 
 --Comandos Git
 	git init --iniciazando o git (lembra de fazer na pasta que quer mandar)
