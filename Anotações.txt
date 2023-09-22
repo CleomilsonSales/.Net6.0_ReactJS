@@ -66,6 +66,11 @@
 		documentação: https://bootswatch.com/
 
 
+	--instalando as router
+		npm install react-router-dom@5.3.0 --save
+		documentação: https://reactrouter.com/en/main
+
+
 --Comandos Git
 	git init --iniciazando o git (lembra de fazer na pasta que quer mandar)
 	git status -- mostra o que tem pendente de adcionar (commit)

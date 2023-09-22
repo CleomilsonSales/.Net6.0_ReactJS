@@ -7,14 +7,16 @@ import Menu from './components/Menu';
 //import 'bootswatch/dist/slate/bootstrap.min.css';
 //import 'bootswatch/dist/sketchy/bootstrap.min.css';
 import 'bootswatch/dist/cosmo/bootstrap.min.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <>
+  //router é para ativar as rotas no menu.jsx
+  <Router> 
     <Menu />
     <div className="container" >
         <App />
     </div>
-  </>,
-  document.getElementById('root')
+  </Router>,
+  //document.getElementById('root')
 );
