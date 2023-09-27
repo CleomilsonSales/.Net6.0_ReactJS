@@ -19,8 +19,14 @@ export default function Menu() {
                     <Nav.Link 
                         activeClassName='active'
                         as={NavLink} 
-                        to='/atividades'
+                        to='/atividades/lista'
                     >Atividades</Nav.Link>
+
+                    <Nav.Link 
+                        activeClassName='active'
+                        as={NavLink} 
+                        to='/clientes/lista'
+                    >Clientes</Nav.Link>
 
                 </Nav>
                 <Nav>
