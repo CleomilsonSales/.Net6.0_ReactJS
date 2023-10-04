@@ -3,6 +3,8 @@ import Atividade from "./pages/atividades/Atividade";
 import Cliente from './pages/clientes/Cliente';
 import Dashboard from './pages/dashboard/Dashboard';
 import { BrowserRouter as Switch, Route, Link } from 'react-router-dom';
+import ClienteForm from './pages/clientes/ClienteForm';
+import PageNotFound from './pages/PageNotFound';
 
 
 
@@ -13,6 +15,10 @@ export default function App(){
       <Route path='/' exact component={ Dashboard } />
       <Route path='/atividades/lista' component={ Atividade } />
       <Route path='/clientes/lista' component={ Cliente } />
+      <Route path='/clientes/:id/atividades' component={ Atividade } />
+      <Route path='/clientes/detalhe/:id?' component={ ClienteForm } />  { /* ? = id é opcional, caso não funcione usar (:id)?*/ }
+      {/*<Route component={ PageNotFound } />*/}
+
     </>
   );
 

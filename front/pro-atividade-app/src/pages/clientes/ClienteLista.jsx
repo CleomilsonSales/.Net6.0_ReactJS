@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import TitlePage from '../../components/TitlePage'
-import { FormControl, InputGroup } from 'react-bootstrap'
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import TitlePage from '../../components/TitlePage';
+import { FormControl, InputGroup, Button } from 'react-bootstrap';
 
 const clientes = [
   {
@@ -27,6 +28,7 @@ const clientes = [
 ]
 
 export default function ClienteLista() {
+  const history = useHistory();
   const [termoBusca, setTermoBusca] = useState('');
   const handleInputChange = (e) => {
     setTermoBusca(e.target.value);
@@ -43,9 +45,18 @@ export default function ClienteLista() {
         .includes(termoBusca.toLowerCase());  //a busca
   });
   
+  const novoCliente = () => {
+    history.push('/clientes/detalhe');
+  }
+
   return (
     <>
-        <TitlePage title='Cliente Lista' />
+        <TitlePage title='Cliente Lista'>
+          <Button variant='outline-secondary' onClick={ novoCliente }>
+            <i className='fas fa-plus me-2'></i>
+            Novo Cliente
+          </Button>
+        </TitlePage>
         <InputGroup className='mt-3 mb-3'>
           <InputGroup.Text>Buscar</InputGroup.Text>
           <FormControl onChange={handleInputChange} placeholder='Buscar por nome do cliente' />
@@ -71,7 +82,10 @@ export default function ClienteLista() {
                 <td>{cliente.situacao}</td>
                 <td>
                   <div>
-                    <button className='btn btn-sm btn-outline-primary me-2'>
+                    <button 
+                      className='btn btn-sm btn-outline-primary me-2'
+                      onClick={ () => history.push(`/clientes/detalhe/${cliente.id}`) }
+                    >
                       <i className='fas fa-user-edit me-2'></i>
                       Editar
                     </button>
