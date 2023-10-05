@@ -1,0 +1,12 @@
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\bin\Debug\net6.0\ProAtividade.Domain.deps.json
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\bin\Debug\net6.0\ProAtividade.Domain.dll
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\bin\Debug\net6.0\ProAtividade.Domain.pdb
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\obj\Debug\net6.0\ProAtividade.Domain.csproj.AssemblyReference.cache
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\obj\Debug\net6.0\ProAtividade.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\obj\Debug\net6.0\ProAtividade.Domain.AssemblyInfoInputs.cache
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\obj\Debug\net6.0\ProAtividade.Domain.AssemblyInfo.cs
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\obj\Debug\net6.0\ProAtividade.Domain.csproj.CoreCompileInputs.cache
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\obj\Debug\net6.0\ProAtividade.Domain.dll
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\obj\Debug\net6.0\refint\ProAtividade.Domain.dll
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\obj\Debug\net6.0\ProAtividade.Domain.pdb
+D:\Estudos\.Net6.0_ReactJS\back\src\ProAtividade.Domain\obj\Debug\net6.0\ref\ProAtividade.Domain.dll

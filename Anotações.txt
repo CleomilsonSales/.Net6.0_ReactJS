@@ -1,5 +1,5 @@
 --configuração
-	.Net 6.0
+	.Net 5.0 ou 6.0
 	NodeJS 14
 	ReactJS
 	se quiser, NVM para controlar versões do NODE:
@@ -150,3 +150,14 @@
 	--criando as Camadas (são chamados de projetos)
 		dotnet new classlib -n ProAtividade.Domain
 		dotnet new classlib -n ProAtividade.Data
+
+
+	--atualizando para .net 6.0
+		-mudar o global.json para a versão desejada
+		-entrar nos csproj e mudar a versão desejada
+		-para atualizar a resferencias do csprroj, instalar novamente na versão desejada usando nuget gallery (CTRL+SHIFT+P)
+			--seleciona na direita o que sera atualizar e manda install
+
+		- não precisa mudar o arquivo Program.cs, mas foi feito no curso, então fiz tambem
+
+		<Nullable>enable</Nullable> //orienta ao desenvolvimento a sempre explicitar as variaveis nulas 
