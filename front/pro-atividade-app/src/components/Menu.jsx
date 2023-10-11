@@ -17,13 +17,14 @@ export default function Menu() {
 
                     //as={ NavLink } estou dizendo que um componente se comporta como outro componente */}
                     <Nav.Link 
-                        activeClassName='active'
+                        //activeClassName='active' //não existi no route-dom 6
+                        className={(navData) => navData.isActive ? 'Active' : ''}
                         as={NavLink} 
                         to='/atividades/lista'
                     >Atividades</Nav.Link>
 
                     <Nav.Link 
-                        activeClassName='active'
+                        className={(navData) => navData.isActive ? 'Active' : ''}
                         as={NavLink} 
                         to='/clientes/lista'
                     >Clientes</Nav.Link>

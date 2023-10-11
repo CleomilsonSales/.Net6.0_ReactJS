@@ -2,24 +2,25 @@ import './App.css';
 import Atividade from "./pages/atividades/Atividade";
 import Cliente from './pages/clientes/Cliente';
 import Dashboard from './pages/dashboard/Dashboard';
-import { BrowserRouter as Switch, Route, Link } from 'react-router-dom';
 import ClienteForm from './pages/clientes/ClienteForm';
 import PageNotFound from './pages/PageNotFound';
-
-
+import { Routes, Route } from 'react-router-dom'; //Switch na versão 6 do router-dom não existe, ele foi substituido pelo Routes
 
 //tudo que estava aqui foi para o componente Atividade.jsx
 export default function App(){
   return (
-    <>
-      <Route path='/' exact component={ Dashboard } />
-      <Route path='/atividades/lista' component={ Atividade } />
-      <Route path='/clientes/lista' component={ Cliente } />
-      <Route path='/clientes/:id/atividades' component={ Atividade } />
-      <Route path='/clientes/detalhe/:id?' component={ ClienteForm } />  { /* ? = id é opcional, caso não funcione usar (:id)?*/ }
-      {/*<Route component={ PageNotFound } />*/}
+    <Routes>
+      {/*<Route path='/' exact component={ Dashboard } /> forma não existe mais no route-dom 6 */}
+      <Route path='/' element={ <Dashboard /> } /> {/* //exact não é mais necessário no route-dom 6 */}
+      <Route path='/atividades/*' element={ <Atividade /> } /> {/*  o * quer dizer que qualquer coisa que não der match, mas tenha com /atividades, ira pra a lista */}
+      <Route path='/atividades/:id/clientes' element={ <Cliente /> } />
+      <Route path='/clientes/*' element={ <Cliente /> } /> 
+      <Route path='/clientes/:id/atividades' element={ <Atividade /> } />
+      <Route path='/clientes/detalhe/' element={ <ClienteForm /> } />  { /* ? = id é opcional, caso não funcione usar (:id)?*/ }
+      <Route path='/clientes/detalhe/:id' element={ <ClienteForm /> } />  { /* ? = id é opcional, caso não funcione usar (:id)?    //isso não existe mais no route-dom 6*/ }
+      <Route element={ <PageNotFound /> } />
 
-    </>
+    </Routes>
   );
 
 }

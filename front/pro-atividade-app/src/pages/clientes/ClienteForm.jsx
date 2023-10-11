@@ -1,10 +1,10 @@
 import React from 'react'
 import TitlePage from '../../components/TitlePage';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom'; //useHistory não existe mais no router-dom 6, agora é useNavigate
 import { Button } from 'react-bootstrap';
 
 export default function ClienteForm() {
-  let history = useHistory();
+  let navigate = useNavigate();
   let { id } = useParams();
 
   return (
@@ -12,8 +12,8 @@ export default function ClienteForm() {
         <TitlePage title={ 'Cliente Detalhes ' + (id !== undefined ? id : '')}>
           <Button
             variant='outline-secondary'
-            //onClick={ () => history.goBack() } //apenas volta a pagina do navegador
-            onClick={ () => history.push('/clientes/lista') } 
+            //onClick={ () => history.goBack() } //apenas volta a pagina do navegador, detalhe, goBack não existe no route-dom 6
+            onClick={ () => navigate('/clientes/lista') } 
           >
             <i className='fas fa-arrow-left me-2'></i>
             Voltar

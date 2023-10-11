@@ -161,3 +161,11 @@
 		- não precisa mudar o arquivo Program.cs, mas foi feito no curso, então fiz tambem
 
 		<Nullable>enable</Nullable> //orienta ao desenvolvimento a sempre explicitar as variaveis nulas 
+
+	--atualizando react-router-dom para 6
+		-instalando
+			npm install react-router-dom@6.3.0
+
+--React TypesSript
+	-documentação: https://create-react-app.dev/	
+	-instalar atualização de java para typescript: npm install --save typescript @types/node @types/react @type/react-dom @types/jest

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TitlePage from '../../components/TitlePage';
 import { FormControl, InputGroup, Button } from 'react-bootstrap';
 
@@ -28,7 +28,7 @@ const clientes = [
 ]
 
 export default function ClienteLista() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [termoBusca, setTermoBusca] = useState('');
   const handleInputChange = (e) => {
     setTermoBusca(e.target.value);
@@ -46,7 +46,7 @@ export default function ClienteLista() {
   });
   
   const novoCliente = () => {
-    history.push('/clientes/detalhe');
+    navigate('/clientes/detalhe');
   }
 
   return (
@@ -84,7 +84,8 @@ export default function ClienteLista() {
                   <div>
                     <button 
                       className='btn btn-sm btn-outline-primary me-2'
-                      onClick={ () => history.push(`/clientes/detalhe/${cliente.id}`) }
+                      //onClick={ () => navigate.push(`/clientes/detalhe/${cliente.id}`) } //push não existe mais no route-dom 6
+                      onClick={ () => navigate(`/clientes/detalhe/${cliente.id}`) }
                     >
                       <i className='fas fa-user-edit me-2'></i>
                       Editar
