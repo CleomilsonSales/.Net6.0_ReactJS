@@ -1,8 +1,11 @@
+import React from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 
-export default function Menu() {
+const Menu = () => {
+  const getActiveRoute = useLocation().pathname ? 'Active' : '';
+
   return (
     <Navbar className='navbar-dark' bg="primary" expand="lg" variant="dark">
         <Container>
@@ -18,15 +21,16 @@ export default function Menu() {
                     //as={ NavLink } estou dizendo que um componente se comporta como outro componente */}
                     <Nav.Link 
                         //activeClassName='active' //não existi no route-dom 6
-                        className={(navData) => navData.isActive ? 'Active' : ''}
+                        //className={(navData) => navData.isActive ? 'Active' : ''}  //usado no java
+                        className={getActiveRoute}
                         as={NavLink} 
-                        to='/atividades/lista'
+                        to='/atividades'
                     >Atividades</Nav.Link>
 
                     <Nav.Link 
-                        className={(navData) => navData.isActive ? 'Active' : ''}
+                        className={getActiveRoute}
                         as={NavLink} 
-                        to='/clientes/lista'
+                        to='/clientes'
                     >Clientes</Nav.Link>
 
                 </Nav>
@@ -43,3 +47,5 @@ export default function Menu() {
     </Navbar>
   )
 }
+
+export default Menu;

@@ -1,8 +1,16 @@
 // se escrever rfc ele criar o basico de uma funçao de componentes - da extensão ES7 React
 import React from 'react'
+import { AtividadeItemProps } from '../../model/atividadesProps';
+import { Prioridade } from '../../model/IAtividade';
 
-export default function AtividadeItem(props) {
-  function prioridadeLabel(param){
+//mudou bastante porque o typescript é fortemente tipado e tem que ajustar isso.
+const AtividadeItem: React.FC<AtividadeItemProps> = ({
+    ativ,
+    pegarAtividade,
+    handleConfirmModal
+  }:AtividadeItemProps) => {
+
+  function prioridadeLabel(param:string){
     switch(param){
       /*case '1':
         return 'Baixa';
@@ -10,16 +18,16 @@ export default function AtividadeItem(props) {
         return 'Normal';
       case '3':
         return 'Alta';*/
-      case 'Baixa':
-      case 'Normal':
-      case 'Alta':
+      case Prioridade.Baixa:
+      case Prioridade.Normal:
+      case Prioridade.Alta:
         return param;
       default:
         return 'Não definida';
     }
   }
 
-  function prioridadeStyle(param,icone){
+  function prioridadeStyle(param: string, icone:boolean){
     switch(param){
       /*case '1':
         return icone ? 'smile' : 'success';
@@ -27,11 +35,11 @@ export default function AtividadeItem(props) {
         return icone ? 'meh' : 'dark';
       case '3':
         return icone ? 'frown' : 'warning';*/
-      case 'Baixa':
+      case Prioridade.Baixa:
         return icone ? 'smile' : 'success';
-      case 'Normal':
+      case Prioridade.Normal:
         return icone ? 'meh' : 'dark';
-      case 'Alta':
+      case Prioridade.Alta:
         return icone ? 'frown' : 'warning';
       default:
         return 'Não definida';
@@ -40,28 +48,28 @@ export default function AtividadeItem(props) {
 
   return (
     // como seria com estilo: style={{ width: "18rem" }}>
-    <div  className={ 'card mb-2 shadow-sm border-'+prioridadeStyle(props.ativ.prioridade) } > 
+    <div  className={ 'card mb-2 shadow-sm border-'+prioridadeStyle(ativ.prioridade, false) } > 
       <div className='card-body'>
         <div className="d-flex justify-content-between">
           <h5 className="card-title">
             <span className="badge bg-secondary me-1">
-              { props.ativ.id }
+              { ativ.id }
             </span>
-            -{ props.ativ.titulo }
+            -{ ativ.titulo }
           </h5>
           <h6>
             Prioridade: 
-            <span className={ 'ms-1 text-' + prioridadeStyle(props.ativ.prioridade) }>
-              <i className={ 'me-1 far fa-' + prioridadeStyle(props.ativ.prioridade,true) }></i>
-              { prioridadeLabel(props.ativ.prioridade) }
+            <span className={ 'ms-1 text-' + prioridadeStyle(ativ.prioridade, false) }>
+              <i className={ 'me-1 far fa-' + prioridadeStyle(ativ.prioridade,true) }></i>
+              { prioridadeLabel(ativ.prioridade) }
             </span>
           </h6>
         </div>
-        <p className="card-text">{props.ativ.descricao }</p>
+        <p className="card-text">{ativ.descricao }</p>
         <div className='d-flex justify-content-end pt-2 m-0 border-top'>
           <button 
             className='btn btn-sm btn-outline-primary me-2'
-            onClick={() => props.pegarAtividade(props.ativ.id)}>
+            onClick={() => pegarAtividade(ativ.id)}>
             <i className='fas fa-pen me-2'></i>
             Editar
           </button> 
@@ -69,7 +77,7 @@ export default function AtividadeItem(props) {
           <button 
             className='btn btn-sm btn btn-outline-danger'
             //onClick={() => props.deletarAtividade(props.ativ.id)}
-            onClick={ () => props.handleConfirmModal(props.ativ.id) }> 
+            onClick={ () => handleConfirmModal(ativ.id) }> 
             <i className='fas fa-trash me-2'></i>
             Deletar
           </button>
@@ -79,3 +87,5 @@ export default function AtividadeItem(props) {
     </div>
   )
 }
+
+export default AtividadeItem;

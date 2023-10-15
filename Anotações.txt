@@ -168,4 +168,9 @@
 
 --React TypesSript
 	-documentação: https://create-react-app.dev/	
-	-instalar atualização de java para typescript: npm install --save typescript @types/node @types/react @type/react-dom @types/jest
+	-instalar atualização de java para typescript: 
+		npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+
+		ATENÇÃO: caso os arquivos tsconfig.json e react-app-env.d.ts não se criem quando der um run... criar manual
+		
+		-observação: arquivos o index.js e App.js foi alterado para index.tsx e App.tsx e tambem os demais que eram jsx para tsx

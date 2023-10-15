@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import AtividadeForm from './AtividadeForm';
 import AtividadeLista from './AtividadeLista';
 import api from '../../api/atividade';
-import { Button, Modal } from 'react-bootstrap';
 import TitlePage from '../../components/TitlePage';
+import { IAtividade, Prioridade } from '../../model/IAtividade';
 
 /*
 //iniciando para testes
@@ -27,7 +28,14 @@ let initialState = [{
 }
 ];*/
 
-export default function Atividade() {
+const atividadeInicial: IAtividade = {
+  id: 0,
+  titulo: '',
+  prioridade: Prioridade.NaoDefinido,
+  descricao: ''
+};
+
+const Atividade = () => {
   //teste
   /*const atividades = [{
     'id': 1,
@@ -38,8 +46,8 @@ export default function Atividade() {
     'descricao': 'Segunda atividade'
   }]*/
   //const [atividades, setAtividades] = useState(initialState); //com Hook useState - atualizar tela
-  const [atividades, setAtividades] = useState([]);
-  const [atividade, setAtividade] = useState({ id: 0});
+  const [atividades, setAtividades] = useState<IAtividade[]>([]);
+  const [atividade, setAtividade] = useState<IAtividade>(atividadeInicial);
 
   //const [index/*, setIndex*/] = useState(0);
 
@@ -68,14 +76,14 @@ export default function Atividade() {
   
   const handleAtividadeModal = () => setShowAtividadeModal(!showAtividadeModal); //interessante que so negando eu criei um interruptor
   
-  const handleConfirmModal = (id) => {
+  const handleConfirmModal = (id?: number) => {
     if (id !== 0 && id !== undefined){
       const atividade = atividades.filter(
         (atividade) => atividade.id === id
       );
       setAtividade(atividade[0]);
     }else{
-      setAtividade({ id:0 });
+      setAtividade(atividadeInicial);
     }
     setSmShowAtividadeModal(!smShowConfirmModal);
   };
@@ -103,11 +111,11 @@ export default function Atividade() {
   }*/
 
   const novaAtividade = () => {
-    setAtividade({id: 0});
+    setAtividade(atividadeInicial);
     handleAtividadeModal();
   }
 
-  const addAtividade = async (ativ) => {
+  const addAtividade = async (ativ: IAtividade) => {
     handleAtividadeModal();
     const response = await api.post('atividade', ativ);
     setAtividades([...atividades, response.data]);
@@ -118,7 +126,7 @@ export default function Atividade() {
     setAtividades([...atividadesFiltrada]);
   }*/
 
-  const deletarAtividade = async (id) => {
+  const deletarAtividade = async (id: number) => {
     handleConfirmModal(0);
     if (await api.delete(`atividade/${id}`)){
       const atividadesFiltrada = atividades.filter(atividade => atividade.id !== id);
@@ -131,20 +139,20 @@ export default function Atividade() {
     setAtividade({id: 0})
   }*/
 
-  const atualizarAtividade = async (ativ) => {
+  const atualizarAtividade = async (ativ: IAtividade) => {
     handleAtividadeModal();
     const response = await api.put(`atividade/${ativ.id}`, ativ);
     const { id } = response.data;
     setAtividades(atividades.map((item) => (item.id === id ? response.data : item)));
-    setAtividade({id: 0})
+    setAtividade(atividadeInicial)
   }
 
   const cancelarAtividade = () => {
-    setAtividade({id: 0});
+    setAtividade(atividadeInicial);
     handleAtividadeModal();
   }
 
-  const pegarAtividade = (id) => {
+  const pegarAtividade = (id: number) => {
     const atividade = atividades.filter((atividade) => atividade.id === id);
     setAtividade(atividade[0]);
 
@@ -199,7 +207,7 @@ export default function Atividade() {
             atualizarAtividade={atualizarAtividade}
             cancelarAtividade={cancelarAtividade}
             ativSelecionada={atividade}
-            atividades={atividades}
+            //atividades={atividades} não esta sendo usado, descobrimos na tipagem
           />
         </Modal.Body>
         {/*<Modal.Footer>
@@ -239,3 +247,5 @@ export default function Atividade() {
     </>
   );
 }
+
+export default Atividade;

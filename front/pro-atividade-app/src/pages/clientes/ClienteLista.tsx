@@ -27,10 +27,11 @@ const clientes = [
   }
 ]
 
-export default function ClienteLista() {
+//caso eu não queria tipar os parametros, so usar o noImplicitAny: false no tsconfig.json
+const ClienteLista = () => {
   const navigate = useNavigate();
   const [termoBusca, setTermoBusca] = useState('');
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTermoBusca(e.target.value);
     console.log(termoBusca);
   };
@@ -103,3 +104,4 @@ export default function ClienteLista() {
     </>
   )
 }
+export default ClienteLista;

@@ -3,7 +3,7 @@ import TitlePage from '../../components/TitlePage';
 import { useNavigate, useParams } from 'react-router-dom'; //useHistory não existe mais no router-dom 6, agora é useNavigate
 import { Button } from 'react-bootstrap';
 
-export default function ClienteForm() {
+const ClienteForm = () => {
   let navigate = useNavigate();
   let { id } = useParams();
 
@@ -24,3 +24,5 @@ export default function ClienteForm() {
     
   )
 }
+
+export default ClienteForm;
